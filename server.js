@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const express = require('express');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
+const config = require('config');
 
-const db = 'mongodb://localhost/twitter-react';
+// const db = 'mongodb://localhost/twitter-react';
+const db = config.get('mongoURI');
 const app = express();
 
 
@@ -31,5 +33,5 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 app.listen(process.env.PORT || 5000, () => {
-  console.log('Server is running...')
+  console.log('Server is running...')	
 })
