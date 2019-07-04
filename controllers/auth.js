@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const bcrypt  = require('bcryptjs');
 
+
 // Sign up
 router.post('/signUp', async (req, res) => {
 	const hashedPassword = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));

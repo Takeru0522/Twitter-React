@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		default: time
 	},
-	selfIntroduce: {
+	selfIntroduction: {
 		type: String,
 	},
 	imgUrl: {
@@ -46,44 +46,6 @@ const userSchema = new mongoose.Schema({
 	}],
 });
 
-// userSchema.add({
-// 	name: {
-// 		type: String,
-// 		required: true
-// 	},
-// 	email: {
-// 		type: String,
-// 		required: true,
-// 		unique: true
-// 	},
-// 	password: {
-// 		type: String,
-// 		required: true
-// 	},
-// 	date: {
-// 		type: Date,
-// 		default: Date.now
-// 	},
-// 	selfIntroduce: {
-// 		type: String,
-// 	},
-// 	imgUrl: {
-// 		type: String,
-// 		default: 'https://react.semantic-ui.com/images/wireframe/image.png'
-// 	},
-	// tweetList: [{
-	// 	type: Schema.Types.ObjectId, ref: 'Tweet'
-	// }],
-	// likedTweet: [{
-	// 	type: Schema.Types.ObjectId, ref: 'Tweet'
-	// }],
-	// follow : [{
-	// 	type: Schema.Types.ObjectId, ref: 'User'
-	// }],
-	// followers : [{
-	// 	type: Schema.Types.ObjectId, ref: 'User'
-	// }],
-// })
 
 
 module.exports = User = mongoose.model('User', userSchema);
