@@ -29,6 +29,30 @@ router.post('/', async (req, res) => {
 	}
 })
 
+router.delete('/:id', async (req, res) => {
+	try {
+		const foundTweet = await Tweet.findByIdAndDelete(req.params.id)
+		// const foundUser foundTweet.tweetedBy
+		if(foundTweet) {
+			console.log(foundTweet, 'deleted this tweet')
+			res.json({
+				message: "Deleted the tweet."
+			})
+		} else {
+			console.log('You got some issue in delete tweet route')
+			res.json({
+				message: "Could not delete the tweet"
+			})
+		}
+	} catch(err) {
+		console.log(err, 'Error in delete / tweet')
+	}
+})
+
+
+
+
+
 
 
 
