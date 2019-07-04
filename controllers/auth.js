@@ -24,6 +24,40 @@ router.post('/signUp', async (req, res) => {
 	}
 })
 
+router.post('/login', async (req, res) => {
+	try {
+		const foundUser = await User.findOne({ email: req.body.email });
+		if(foundUser) {
+			const passwordMatch = bcrypt.compareSync(req.body.password, foundUser.password);
+			if(passwordMatch) {
+				console.log(foundUser, 'User logged in.')
+				req.session.logged = true;
+				req.session.username = foundUser.username;
+				res.json({
+					status: 200,
+					data: foundUser,
+					message: "User logged in"
+				})
+			} else {
+				console.log('password error')
+				res.json({
+					status: 404,
+					message: "Password doesn't match."
+				})
+			}
+		} else {
+			console.log('User not found')
+			res.json({
+				status: 404,
+				message: "User doesn't exist."
+			})
+		}
+
+	} catch(err) {
+		console.log(err, 'login error')
+	}
+})
+
 
 
 module.exports = router;
