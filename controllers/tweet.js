@@ -3,7 +3,7 @@ const router = express.Router();
 const Tweet = require('../models/Tweet');
 
 
-// Get all users
+// Get all tweets
 router.get('/', async (req, res) => {
 	try {
 		const allTweets = await Tweet.find();
@@ -16,7 +16,8 @@ router.get('/', async (req, res) => {
 	}
 })
 
-// post tweet
+
+// Post tweet
 router.post('/', async (req, res) => {
 	try {
 		const newTweet = await Tweet.create(req.body);
@@ -29,6 +30,37 @@ router.post('/', async (req, res) => {
 	}
 })
 
+// Get single tweet by id
+router.get('/:id', async (req, res) => {
+	try {
+		const foundTweet = await Tweet.find({_id: req.params.id})
+		console.log(foundTweet)
+		res.json({
+			status: 200,
+			data: foundTweet,
+		})
+	} catch(err) {
+		console.log(err, 'Error in get single tweet by id')
+	}
+})
+
+
+// Update tweet
+router.put('/:id', async (req, res) => {
+	try {
+		const updatedTweet = await Tweet.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true});
+		console.log(updatedTweet, 'Updated successfully.');
+		res.json({
+			status: 200,
+			data: updatedTweet,
+			message: "Updated successfully"
+		});
+	} catch(err) {
+		console.log(err, 'Error in update / tweet')
+	}
+})
+
+// Delete tweet
 router.delete('/:id', async (req, res) => {
 	try {
 		const foundTweet = await Tweet.findByIdAndDelete(req.params.id)
