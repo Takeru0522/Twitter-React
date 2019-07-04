@@ -24,6 +24,7 @@ router.post('/signUp', async (req, res) => {
 	}
 })
 
+// Login
 router.post('/login', async (req, res) => {
 	try {
 		const foundUser = await User.findOne({ email: req.body.email });
@@ -52,11 +53,34 @@ router.post('/login', async (req, res) => {
 				message: "User doesn't exist."
 			})
 		}
-
 	} catch(err) {
 		console.log(err, 'login error')
 	}
 })
+
+
+// Logout
+router.get('/logout', (req, res) => {
+	req.session.destroy((err) => {
+		if(err) {
+			console.log(err, 'Logout Error')
+			res.json({
+				message: 'Could not logout'
+			})
+		} else {
+			res.json({
+				message: 'Successfully Logged out'
+			})
+		}
+	})
+})
+
+
+
+
+
+
+
 
 
 
