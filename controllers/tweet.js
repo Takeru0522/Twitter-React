@@ -63,12 +63,13 @@ router.put('/:id', async (req, res) => {
 // Delete tweet
 router.delete('/:id', async (req, res) => {
 	try {
-		const foundTweet = await Tweet.findByIdAndDelete(req.params.id)
-		// const foundUser foundTweet.tweetedBy
-		if(foundTweet) {
-			console.log(foundTweet, 'deleted this tweet')
+		const deletedTweet = await Tweet.findByIdAndDelete(req.params.id)
+		// const deletedUser deletedTweet.tweetedBy
+		if(deletedTweet) {
+			console.log(deletedTweet, 'deleted this tweet')
 			res.json({
-				message: "Deleted the tweet."
+				message: "Deleted the tweet.",
+				data: deletedTweet
 			})
 		} else {
 			console.log('You got some issue in delete tweet route')
