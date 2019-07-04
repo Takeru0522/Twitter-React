@@ -2,6 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const User = require('./User');
 
+// modify UTC time to Tokyo time
+const moment = require('moment-timezone');
+const dateTokyo = moment.tz(Date.now(), "Asia/Tokyo");
+// console.log(dateTokyo._d)
+const time = dateTokyo.format('MMMM Do YYYY, h:mm:ss a');
+console.log(time)
+
+
 const tweetSchema = mongoose.Schema();
 tweetSchema.add({
 	main: {
@@ -12,8 +20,8 @@ tweetSchema.add({
 		type: String
 	},
 	data: {
-		type: Date,
-		default: Date.now
+		type: String,
+		default: time
 	},
 	reply: [{
 		type: Schema.Types.ObjectId, ref: 'Tweet',

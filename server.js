@@ -3,6 +3,7 @@ const express = require('express');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const config = require('config');
+const session = require('express-session');
 // const authController = require('./controllers/auth');
 const tweetController = require('./controllers/tweet');
 const userController = require('./controllers/user');
@@ -14,6 +15,11 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(bodyParser.json());
+app.use(session({
+  secret: 'moving to Tokyo next Sunday',
+  resave: false,
+  saveUninitialized: false
+}))
 
 
 mongoose

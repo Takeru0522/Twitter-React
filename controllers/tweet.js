@@ -6,10 +6,10 @@ const Tweet = require('../models/Tweet');
 // Get all users
 router.get('/', async (req, res) => {
 	try {
-		const allUsers = await User.find();
+		const allTweets = await Tweet.find();
 		res.json({
 			status: 200,
-			data: allUsers
+			data: allTweets
 		})
 	} catch(err) {
 		console.log(err, 'Error in get / tweet')
