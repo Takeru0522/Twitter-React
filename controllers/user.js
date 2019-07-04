@@ -32,6 +32,22 @@ router.get('/:id', async (req, res) => {
 })
 
 
+// Update user
+router.put('/:id', async (req, res) => {
+	try {
+		const updatedUser = await User.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true});
+		console.log(updatedUser, 'updatedUser');
+		res.json({
+			status: 200,
+			data: updatedUser,
+			message: "Updated user successfully."
+		})
+	} catch(err) {
+		console.log(err, 'Error in put / user')
+	}
+})
+
+
 // Delete user
 router.delete('/:id', async (req, res) => {
 	try {
