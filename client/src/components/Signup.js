@@ -27,7 +27,9 @@ class Signup extends Component {
 				}
 			})
 			const parsed = await res.json();
-			console.log(parsed)
+			console.log(parsed.data)
+			localStorage.setItem('currentUser', parsed.data.username);
+			window.location.href = '/'
 		} catch(err) {
 			console.log(err, 'Error in onSubmit in Signup')
 		}
@@ -43,7 +45,6 @@ class Signup extends Component {
 						<Input 
 							type="username"
 							name="username"
-							id="username"
 							placeholder="username"
 							className="mb-3"
 							onChange={this.onChange}
@@ -53,7 +54,6 @@ class Signup extends Component {
 						<Input 
 							type="email"
 							name="email"
-							id="email"
 							placeholder="Email"
 							className="mb-3"
 							onChange={this.onChange}
@@ -63,7 +63,6 @@ class Signup extends Component {
 						<Input 
 							type="password"
 							name="password"
-							id="password"
 							placeholder="Password"
 							className="mb-3"
 							onChange={this.onChange}

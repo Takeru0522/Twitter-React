@@ -26,7 +26,9 @@ class Login extends Component {
 				}
 			})
 			const parsed = await res.json();
-			console.log(parsed)
+			console.log(parsed.data)
+			await localStorage.setItem('currentUser', parsed.data.username)
+			window.location.href = '/'
 		} catch(err) {
 			console.log(err, 'Error in onSubmit in Login')
 		}
@@ -36,7 +38,7 @@ class Login extends Component {
 		return (
 			<div>
 				<h1 className="bg-warning w-100">Auth</h1>
-				
+				{this.state.currentUser ? <h3>Logged in</h3> : null}
 				<Form className="bg-light p-3" onSubmit={this.onSubmit}>
 					<FormGroup>
 						<h3>Login</h3>
@@ -44,7 +46,6 @@ class Login extends Component {
 						<Input 
 							type="email"
 							name="email"
-							id="email"
 							placeholder="Email"
 							className="mb-3"
 							onChange={this.onChange}
@@ -54,7 +55,6 @@ class Login extends Component {
 						<Input 
 							type="password"
 							name="password"
-							id="password"
 							placeholder="Password"
 							className="mb-3"
 							onChange={this.onChange}
