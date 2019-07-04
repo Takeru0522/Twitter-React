@@ -3,7 +3,9 @@ const express = require('express');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const config = require('config');
-
+// const authController = require('./controllers/auth');
+const tweetController = require('./controllers/tweet');
+const userController = require('./controllers/user');
 // const db = 'mongodb://localhost/twitter-react';
 const db = config.get('mongoURI');
 const app = express();
@@ -22,6 +24,11 @@ mongoose
 	})
 	.then(() => console.log('MongoDB is connected...'))
 	.catch(err => console.log(err))
+
+
+// app.use('/api/auth', authController);
+app.use('/api/tweets', tweetController);
+app.use('/api/users', userController);
 
 
 
