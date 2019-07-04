@@ -8,7 +8,7 @@ const time = dateTokyo.format('MMMM Do YYYY, h:mm:ss a');
 
 
 const userSchema = new mongoose.Schema({
-	name: {
+	username: {
 		type: String,
 		required: true
 	},
