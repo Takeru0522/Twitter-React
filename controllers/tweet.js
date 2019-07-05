@@ -6,7 +6,8 @@ const Tweet = require('../models/Tweet');
 // Get all tweets
 router.get('/', async (req, res) => {
 	try {
-		const allTweets = await Tweet.find();
+		const allTweets = await Tweet.find().sort({ date: -1 });
+		// await allTweets.sort({ date: -1 })
 		res.json({
 			status: 200,
 			data: allTweets

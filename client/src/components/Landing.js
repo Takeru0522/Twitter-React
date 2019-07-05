@@ -50,8 +50,8 @@ class Landing extends Component {
 						: <div className="row">This is witdh of 100% row</div> }
 					<div className="row">
 						<div className="col-8 bg-danger">
-							<TweetInput />
-							<TweetContainer />
+							
+							<TweetContainer currentUser={this.state.currentUser}/>
 							<h1>Hello</h1>
 							<h1>Hello</h1>
 						</div>

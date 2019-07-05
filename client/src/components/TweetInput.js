@@ -35,6 +35,8 @@ class TweetInput extends Component {
 			})
 			const parsed = await res.json();
 			console.log(parsed.data)
+			
+			
 		} catch(err) {
 			console.log(err, 'Error in onSubmit for Posting tweet ')
 		}

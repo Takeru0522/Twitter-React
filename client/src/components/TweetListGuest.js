@@ -9,8 +9,11 @@ const TweetListGuest = (props) => {
 
 	
 	const tweetList = props.allTweets.map((tweet) => {
+
 			return(
-				<ListGroupItem key={tweet._id}>
+				<TransitionGroup key={tweet._id} className="tweetList">
+				<CSSTransition timeout={500} classNames="fade">
+				<ListGroupItem >
 					
 						<div className="row row-top">
 							<div className="col col-3">
@@ -20,7 +23,8 @@ const TweetListGuest = (props) => {
 								<p className="tweet-username">{tweet.tweetedBy}</p>
 							</div>
 							<div className="col col-3">
-								<h4>...</h4>
+								<h4 onClick={props.deleteTweet.bind(this, tweet._id)}>...</h4>
+								
 							</div>
 						</div>
 						<p className="divider"></p>
@@ -31,10 +35,10 @@ const TweetListGuest = (props) => {
 							</div>
 						
 						<div className="row row-bottom">
-							<div className="col col-6">
+							<div className="col col-8">
 								<p className="tweet-date">{tweet.date}</p>
 							</div>
-							<div className="col col-6 icons-container">
+							<div className="col col-4 icons-container">
 								<img alt="reply" className="tweet-icon" src={reply} />
 								<p>{tweet.reply.length}</p>
 								<img alt="reply" className="tweet-icon" src={heart} />
@@ -43,6 +47,8 @@ const TweetListGuest = (props) => {
 						</div>
 				
 				</ListGroupItem>
+				</CSSTransition>
+				</TransitionGroup>
 			)			
 	})
 	return(
