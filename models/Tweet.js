@@ -17,7 +17,7 @@ tweetSchema.add({
 	tweetedBy: {
 		type: String
 	},
-	data: {
+	date: {
 		type: String,
 		default: time
 	},

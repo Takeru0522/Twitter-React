@@ -49,6 +49,84 @@
 }
 
 
+li.list-group-item {
+  padding: .5rem .95rem .5rem .95rem ;
+}
+.list-group-item p {
+  text-align: left;
+}
+/*.list-group-item .col-top {
+  height: auto;
+  margin: 0;
+  padding:0;
+}*/
+
+.user-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  /*margin-bottom: .55rem;*/
+}
+.list-group-item p .tweet-username {
+  
+  
+}
+ p.tweet-username {
+  font-size: 20px;
+  margin: auto 0; 
+  vertical-align: middle;
+ }
+.row-top {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+}
+.divider {
+  width: 100%;
+  border-bottom: 1px solid #EFEFEF;
+  margin: 3px 0;
+}
+
+.tweet-main {
+  min-height: 10vh;
+  margin: 0;
+}
+div.row.tweet-main.row-middle {
+ margin: 0; 
+}
+.list-group-item .tweet-date {
+  margin-left: 0;
+  margin-bottom: 0;
+  color: #BBB8B8;
+}
+.list-group-item .tweet-main {
+  margin-left: 1rem;
+}
+
+.tweet-icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  opacity: 0.3;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+}
+.icons-container p {
+  margin: 0;
+  color: #BBB8B8;
+  margin-right: 7px;
+}
+/*.row-bottom*/
+
+
+
+
 /* For Dev */
 
 
