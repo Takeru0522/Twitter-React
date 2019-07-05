@@ -39,7 +39,7 @@ class Signup extends Component {
 		return (
 			<div className="mt-2">				
 				<Form className="bg-light p-3" onSubmit={this.onSubmit}>
-					<FormGroup>
+					
 						<h3>Signup</h3>
 						
 						<Input 
@@ -69,7 +69,7 @@ class Signup extends Component {
 							value={this.state.password}
 						/>
 						<Button color="dark" block className="mt-4">Signup</Button>
-					</FormGroup>
+					
 				</Form>
 			</div>
 		)

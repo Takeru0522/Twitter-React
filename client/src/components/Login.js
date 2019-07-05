@@ -40,7 +40,7 @@ class Login extends Component {
 				<h1 className="bg-warning w-100">Auth</h1>
 				{this.state.currentUser ? <h3>Logged in</h3> : null}
 				<Form className="bg-light p-3" onSubmit={this.onSubmit}>
-					<FormGroup>
+					
 						<h3>Login</h3>
 						
 						<Input 
@@ -61,7 +61,7 @@ class Login extends Component {
 							value={this.state.password}
 						/>
 						<Button color="dark" block className="mt-4">Login</Button>
-					</FormGroup>
+					
 				</Form>
 			</div>
 		)

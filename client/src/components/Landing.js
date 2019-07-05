@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Login from './Login';
 import Signup from './Signup';
+import TweetInput from './TweetInput';
+import TweetContainer from './TweetContainer';
 
 class Landing extends Component {
 	constructor(){
@@ -48,8 +50,8 @@ class Landing extends Component {
 						: <div className="row">This is witdh of 100% row</div> }
 					<div className="row">
 						<div className="col-8 bg-danger">
-							<h1>Hello</h1>
-							<h1>Hello</h1>
+							<TweetInput />
+							<TweetContainer />
 							<h1>Hello</h1>
 							<h1>Hello</h1>
 						</div>
